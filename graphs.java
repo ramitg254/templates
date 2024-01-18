@@ -1,13 +1,13 @@
 package templates;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
+import java.io.*;
 
 public class graphs {
-    static ArrayList<ArrayList<Integer>> adj=new ArrayList<>();
-    static boolean[] visited=new boolean[100005];
+    static ArrayList<ArrayList<Integer>> adj;
+    static boolean[] visited;
 
+    // dfs
     public static void dfs(int v) {
         visited[v] = true;
         ArrayList<Integer> l = adj.get(v);
@@ -17,6 +17,8 @@ public class graphs {
             }
         }
     }
+    
+    // bfs
     public static void bfs( int v) {
         Queue<Integer> q=new LinkedList<>();
         q.add(v);
@@ -32,5 +34,6 @@ public class graphs {
             }
         }
     }
+    
 }
 
