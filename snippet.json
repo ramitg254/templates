@@ -14,6 +14,7 @@
 	// }
 
     "Template for CP": {
+
         "prefix": "template",
         "body": [
             "import java.util.*;",
@@ -25,12 +26,13 @@
             "\tstatic OutputWriter out = new OutputWriter(System.out);",
             "",
             "\tpublic static void main(String[] args) throws Exception {",
-            "\t\tnew Thread(null, new Main(), \"Main\", 1 << 29).start();",
+            "\t\tnew Thread(null, new $TM_FILENAME_BASE(), \"Main\", 1 << 29).start();",
             "\t}",
             "",
             "\tpublic void run() {",
             "\t\t// For deep recursion ",
-            "\t\tint t = in.nextInt();",
+            "\t\tint t = 1;",
+            "\t\tt = in.nextInt();",
             "\t\twhile (t-- > 0) {",
             "\t\t\tsolve();",
             "\t\t}",
@@ -40,7 +42,6 @@
             "\t\t$0",
             "\t\tout.flush();",
             "\t}",
-            "",
             "",
             "\t// removing duplicates",
             "\tpublic static ArrayList<Long> removeDuplicates(ArrayList<Long> list) {",
