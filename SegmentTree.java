@@ -23,8 +23,8 @@ public class SegmentTree {
 
     public void update(int node, int low, int high, int ind, int val) {
         if (low == high) {
-            ar[ind] += val;
-            seg[node] += val;
+            ar[ind] = val;
+            seg[node] = val;
             return;
         }
         int mid = (low + high) / 2;

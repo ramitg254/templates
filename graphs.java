@@ -34,6 +34,35 @@ public class graphs {
             }
         }
     }
+
+    static Set<Integer> par=new HashSet<>();
+
+    public static boolean isCycleDirected(int v){
+        visited[v] = true;
+        ArrayList<Integer> l = adj.get(v);
+        boolean check=false;
+        par.add(v);
+        for (int u :l) {
+            if (!visited[u]) {
+                check|=isCycleDirected(u);
+            }
+            if(par.contains(u))return true;
+        }
+        par.remove(v);
+        return check;
+    }
+
+    public static boolean isCycleUnDirected(int v,int p){
+        visited[v] = true;
+        ArrayList<Integer> l = adj.get(v);
+        boolean check=false;
+        for (int u :l) {
+            if (!visited[u]) {
+                check|=isCycleUnDirected(u,v);
+            }else if(u!=p) return true;
+        }
+        return check;
+    }
     
 }
 
